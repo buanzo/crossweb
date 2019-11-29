@@ -39,6 +39,7 @@ except ImportError:
 
 __default_timeout__ = 30
 
+
 class HttpInternalTester():
     def __init__(self,
                  internos=None,
@@ -167,7 +168,7 @@ class HttpInternalTester():
             else:
                 if r.status_code is not requests.codes.ok:
                     print("Status Code for {} via {} not 200.".format(domain,
-                                                                       ip))
+                                                                      ip))
                 host_based_html = r.text
                 title = self.extraer_title(host_based_html).decode('utf8')
                 t = "WARNING:{}:{}:FINAL_URL={}:TITLE={}"
@@ -213,8 +214,8 @@ if __name__ == '__main__':
     parser.add_argument("-b",
                         dest="ip_blacklist",
                         required=False,
-                        help="Do not connect to this IP. Use multiple times if needed",
-                        action="append", # No extend on most envs
+                        help="Do not use this IP. Allows multiple uses.",
+                        action="append",  # No extend on most envs
                         default=[])
     args = parser.parse_args()
     hit = HttpInternalTester(internos=args.internos,
