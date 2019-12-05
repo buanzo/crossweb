@@ -170,7 +170,7 @@ class HttpInternalTester():
                     print("Status Code for {} via {} not 200.".format(domain,
                                                                       ip))
                 host_based_html = r.text
-                title = self.extraer_title(host_based_html).decode('utf8')
+                title = self.extraer_title(host_based_html)
                 t = "WARNING:{}:{}:FINAL_URL={}:TITLE={}"
                 print(t.format(domain,
                                ip,
@@ -182,9 +182,13 @@ class HttpInternalTester():
             sys.exit(5)
 
     def extraer_title(self, html):
-        soup = BeautifulSoup(html, 'lxml')
-        title = soup.find('title')
-        return(title.renderContents())
+        try:
+            soup = BeautifulSoup(html, 'lxml')
+            title = soup.find('title')
+        except Exception:
+            title = 'No TITLE tag'
+        else:
+            return(title.renderContents().decode('utf8'))
 
 
 if __name__ == '__main__':
