@@ -7,7 +7,7 @@ A tool for private/public website verification, supporting SSL.
 Usage
 -----
 
-First, you need two create two files: one will contain, one per linea, a
+First, you need two create two files: one will contain, one per line, a
 list of internal websites for your target organization.
 
 The other, a list of external websites for your target organization.
