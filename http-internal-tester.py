@@ -186,7 +186,7 @@ class HttpInternalTester():
             soup = BeautifulSoup(html, 'lxml')
             title = soup.find('title')
         except Exception:
-            title = 'No TITLE tag'
+            return('No TITLE tag')
         else:
             return(title.renderContents().decode('utf8'))
 
