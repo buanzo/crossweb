@@ -139,7 +139,7 @@ class HttpInternalTester():
             if r.status_code is not requests.codes.ok:
                 print("Status Code: {} via {} no es 200.".format(domain, ip))
             host_based_html = r.text
-            title = self.extraer_title(host_based_html).decode('utf8')
+            title = self.extraer_title(host_based_html)
             print("WARNING:{}:{}:FINAL_URL={}:TITLE={}".format(domain,
                                                                ip,
                                                                r.url,
