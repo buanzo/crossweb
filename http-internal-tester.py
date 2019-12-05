@@ -184,11 +184,10 @@ class HttpInternalTester():
     def extraer_title(self, html):
         try:
             soup = BeautifulSoup(html, 'lxml')
-            title = soup.find('title')
+            title = soup.find('title').renderContents().decode('utf8')
         except Exception:
             return('No TITLE tag')
-        else:
-            return(title.renderContents().decode('utf8'))
+        return(title)
 
 
 if __name__ == '__main__':
